@@ -4,7 +4,7 @@ const User = require("../models/User");
 
 // update user
 router.put("/:id", async (req, res) => {
-  if (req.body.userId === req.params.id || req.user.isAdmin) {
+  if (req.body.userId === req.params.id || req.body.isAdmin) {
     if (req.body.password) {
       try {
         const salt = await bcrypt.genSalt(10);
@@ -23,11 +23,38 @@ router.put("/:id", async (req, res) => {
       res.status(500).json({ message: err });
     }
   } else {
-    return res.status(401).json({ message: "Unauthorized" });
+    return res
+      .status(401)
+      .json({ message: "You can update only your password.." });
   }
 });
+
 // delete user
+router.delete("/:id", async (req, res) => {
+  if (req.body.userId === req.params.id || req.body.isAdmin) {
+    try {
+      const user = await User.findByIdAndDelete(req.params.id);
+      res.status(200).json({ message: "Acount has been deleted." });
+    } catch (err) {
+      res.status(500).json({ message: err });
+    }
+  } else {
+    return res
+      .status(401)
+      .json({ message: "You can delete only your account.." });
+  }
+});
+
 // get user
+router.get("/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    res.status(200).json(user);
+  } catch (err) {
+    res.status(500).json({ message: err });
+  }
+});
+
 // follow user
 // unfollow user
 module.exports = router;
