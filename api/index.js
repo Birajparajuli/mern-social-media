@@ -11,6 +11,7 @@ const morgan = require("morgan");
 //Routes
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
+const postRoute = require("./routes/posts");
 
 //connect to mongodb using mongoose
 mongoose.connect(
@@ -31,6 +32,9 @@ app.use("/api/users", userRoute);
 
 //authendication route\
 app.use("/api/auth", authRoute);
+
+// post route
+app.use("/api/posts", postRoute);
 
 //Server port
 app.listen(5000, () => {
