@@ -3,9 +3,21 @@ import Topbar from "../../components/topbar/Topbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Feed from "../../components/feed/Feed";
 import RightBar from "../../components/rightbar/RightBar";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Profile() {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
+  const [user, setUser] = useState([]);
+  useEffect(() => {
+    const fetchUser = async () => {
+      const res = await axios.get(`users?username=biraj`);
+      setUser(res.data);
+    };
+
+    fetchUser();
+  }, []);
   return (
     <>
       <Topbar />
@@ -26,11 +38,8 @@ export default function Profile() {
               />
             </div>
             <div className="profile-info">
-              <h4 className="profile-info-name">Biraj parajuli</h4>
-              <span className="profile-info-desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe,
-                officia!
-              </span>
+              <h4 className="profile-info-name">{user.username}</h4>
+              <span className="profile-info-desc">{user.desc}</span>
             </div>
           </div>
 

@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 function Post({ post }) {
   const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLike] = useState(false);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState([]);
   const likeHandler = () => {
     setLike(isLiked ? like - 1 : like + 1);
     setIsLike(!isLiked);
@@ -19,6 +19,7 @@ function Post({ post }) {
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(`users/${post.userId}`);
+      console.log(res.data);
       setUser(res.data);
     };
 
