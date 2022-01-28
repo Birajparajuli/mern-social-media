@@ -1,32 +1,40 @@
 import "./Post.css";
 import { MdMoreVert } from "react-icons/md";
 import { Users } from "../../dummyData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { format } from "timeago.js";
 
 function Post({ post }) {
-  const [like, setLike] = useState(post.like);
+  const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLike] = useState(false);
-
+  const [user, setUser] = useState({});
   const likeHandler = () => {
     setLike(isLiked ? like - 1 : like + 1);
     setIsLike(!isLiked);
   };
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
+  useEffect(() => {
+    const fetchUser = async () => {
+      const res = await axios.get(`users/${post.userId}`);
+      setUser(res.data);
+    };
+
+    fetchUser();
+  }, [post.userId]);
   return (
     <div className="post">
       <div className="post-wrapper">
         <div className="post-top">
           <div className="post-top-left">
             <img
-              src={Users.filter((u) => u.id === post.userId)[0].profilePicture}
+              src={user.profilePicture || PF + "person/2.jpeg"}
               alt="profile"
               className="post-profile-img"
             />
-            <span className="post-username">
-              {Users.filter((u) => u.id === post.userId)[0].username}
-            </span>
-            <span className="post-date">{post.date}</span>
+            <span className="post-username">{user.username}</span>
+            <span className="post-date">{format(post.createdAt)}</span>
           </div>
           <div className="post-top-right">
             <MdMoreVert />
@@ -34,7 +42,7 @@ function Post({ post }) {
         </div>
         <div className="post-center">
           <span className="post-test">{post?.desc}</span>
-          <img src={PF + post.photo} alt="post" className="post-img" />
+          <img src={PF + post.img} alt="post" className="post-img" />
         </div>
         <div className="post-bottom">
           <div className="post-bottom-left">
