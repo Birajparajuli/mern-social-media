@@ -7,9 +7,12 @@ import axios from "axios";
 
 export default function Feed() {
   const [posts, setPosts] = useState([]);
+
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = axios.get("/timeline/61f0338be300543ff151b920");
+      const res = await axios.get(
+        "http://localhost:5000/api/posts/timeline/61f02fd39d094cc5da65030c"
+      );
       console.log(res);
     };
 
