@@ -9,7 +9,7 @@ export default function Topbar() {
       </div>
       <div className="topbar-center">
         <div className="searchbar">
-          <MdSearch />
+          <MdSearch className="search-icon" />
           <input placeholder="Search SocialHub... " className="search-input" />
         </div>
       </div>
