@@ -1,8 +1,15 @@
+import Post from "../post/Post";
+import Share from "../share/Share";
 import "./Feed.css";
 export default function Feed() {
   return (
     <div className="feed">
-      <h1>This is feed</h1>
+      <div className="feed-wrapper">
+        <Share />
+        <Post />
+        <Post />
+        <Post />
+      </div>
     </div>
   );
 }
