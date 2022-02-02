@@ -37,3 +37,45 @@
   padding: 0;
   list-style: none;
 }
+.rightbar-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.rightbar-info {
+  margin-bottom: 30px;
+}
+.rightbar-info-item {
+  margin-bottom: 10px;
+}
+
+.rightbar-info-key {
+  font-weight: 500;
+  margin-right: 15px;
+  color: #555;
+}
+.rightbar-info-value {
+  font-weight: 400;
+}
+.rightbar-followings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.rightbar-following {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  cursor: pointer;
+}
+.rightbar-following-img {
+  width: 100px;
+  height: 100px;
+
+  border-radius: 5px;
+  object-fit: cover;
+}
+.rightbar-following-name {
+  margin-top: 10px;
+}
