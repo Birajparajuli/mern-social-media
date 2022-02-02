@@ -1,4 +1,4 @@
-import "./Login.css";
+import "./Register.css";
 
 export default function Login() {
   return (
@@ -12,11 +12,15 @@ export default function Login() {
         </div>
         <div className="login-right">
           <div className="login-box">
+            <input placeholder="Username" className="login-input"></input>
             <input placeholder="Email" className="login-input"></input>
             <input placeholder="Password" className="login-input"></input>
-            <button className="login-btn">Log In</button>
-            <span className="login-forgot">Forgot Password ?</span>
-            <button className="register-btn">Create a New</button>
+            <input
+              placeholder="Repeat Password"
+              className="login-input"
+            ></input>
+            <button className="login-btn">Sign Up</button>
+            <button className="register-btn">Log in Your Account</button>
           </div>
         </div>
       </div>
