@@ -8,7 +8,8 @@ import {
   MdChat,
   MdVideoLibrary,
 } from "react-icons/md";
-
+import { CloseFriends } from "../closeFriends/CloseFriends";
+import { Users } from "../../dummyData";
 export default function Sidebar() {
   return (
     <div className="sidebar">
@@ -46,46 +47,9 @@ export default function Sidebar() {
         <button className="sidebar-btn">Show More</button>
         <hr className="sidebar-hr" />
         <ul className="sidebar-friend-list">
-          <li className="sidebar-friend">
-            <img
-              src="/assets/person/1.jpeg"
-              alt=""
-              className="sidebar-friend-img"
-            />
-            <span className="sidebar-friend-name">Jhon Doe</span>
-          </li>
-          <li className="sidebar-friend">
-            <img
-              src="/assets/person/1.jpeg"
-              alt=""
-              className="sidebar-friend-img"
-            />
-            <span className="sidebar-friend-name">Jhon Doe</span>
-          </li>
-          <li className="sidebar-friend">
-            <img
-              src="/assets/person/1.jpeg"
-              alt=""
-              className="sidebar-friend-img"
-            />
-            <span className="sidebar-friend-name">Jhon Doe</span>
-          </li>
-          <li className="sidebar-friend">
-            <img
-              src="/assets/person/1.jpeg"
-              alt=""
-              className="sidebar-friend-img"
-            />
-            <span className="sidebar-friend-name">Jhon Doe</span>
-          </li>
-          <li className="sidebar-friend">
-            <img
-              src="/assets/person/1.jpeg"
-              alt=""
-              className="sidebar-friend-img"
-            />
-            <span className="sidebar-friend-name">Jhon Doe</span>
-          </li>
+          {Users.map((user) => (
+            <CloseFriends id={user.id} user={user} />
+          ))}
         </ul>
       </div>
     </div>

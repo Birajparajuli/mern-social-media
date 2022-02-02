@@ -1,4 +1,6 @@
 import "./RightBar.css";
+import { Users } from "../../dummyData";
+import Online from "../online/Online";
 
 export default function RightBar() {
   return (
@@ -16,28 +18,9 @@ export default function RightBar() {
         </a>
         <h4 className="rightbar-title">Online Friends</h4>
         <ul className="rightbar-friend-list">
-          <li className="rightbar-friend">
-            <div className="rightbar-profile-image-container">
-              <img
-                src="/assets/person/1.jpeg"
-                alt=""
-                className="rightbar-profile-img"
-              />
-              <span className="rightbar-online"></span>
-            </div>
-            <span className="rightbar-profile-name">Rohan Dhimal</span>
-          </li>
-          <li className="rightbar-friend">
-            <div className="rightbar-profile-image-container">
-              <img
-                src="/assets/person/1.jpeg"
-                alt=""
-                className="rightbar-profile-img"
-              />
-              <span className="rightbar-online"></span>
-            </div>
-            <span className="rightbar-profile-name">Bibek Dhital</span>
-          </li>
+          {Users.map((user) => (
+            <Online key={user.id} user={user} />
+          ))}
         </ul>
       </div>
     </div>

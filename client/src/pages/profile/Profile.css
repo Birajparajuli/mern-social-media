@@ -1,0 +1,33 @@
+.profile {
+  display: flex;
+}
+
+.profile-right {
+  flex: 9;
+}
+
+.profile-right-bottom {
+  display: flex;
+}
+
+.profile-cover {
+  height: 320px;
+  position: relative;
+}
+
+.profile-cover-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.profile-user-img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  position: absolute;
+  top: 150px;
+  left: calc(50% - 75px);
+  object-fit: cover;
+  border: 3px solid #fff;
+}
