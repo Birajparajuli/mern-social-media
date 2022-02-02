@@ -5,6 +5,7 @@ import Feed from "../../components/feed/Feed";
 import RightBar from "../../components/rightbar/RightBar";
 
 export default function Profile() {
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   return (
     <>
       <Topbar />

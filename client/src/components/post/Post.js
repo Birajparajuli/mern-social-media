@@ -11,6 +11,7 @@ function Post({ post }) {
     setLike(isLiked ? like - 1 : like + 1);
     setIsLike(!isLiked);
   };
+  const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
   return (
     <div className="post">
@@ -33,7 +34,7 @@ function Post({ post }) {
         </div>
         <div className="post-center">
           <span className="post-test">{post?.desc}</span>
-          <img src={post.photo} alt="post" className="post-img" />
+          <img src={PF + post.photo} alt="post" className="post-img" />
         </div>
         <div className="post-bottom">
           <div className="post-bottom-left">
