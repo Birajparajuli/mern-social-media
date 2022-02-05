@@ -11,8 +11,9 @@
 .logo {
   font-size: 24px;
   margin-left: 20px;
-  font-size: bold;
+  font-weight: 800;
   cursor: pointer;
+  color: #fff;
 }
 
 .topbar-left {
@@ -66,6 +67,7 @@
   font-size: 20px !important;
   margin-right: 15px;
   position: relative;
+  cursor: pointer;
 }
 
 .topbar-icon-badge {
